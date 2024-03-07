@@ -18,12 +18,12 @@ public class Main {
             }
             int ii = i + 65;
             if(ii > 90)
-                ii = (i - 65) % 26 + 65;
+                ii = (ii - 65) % 26 + 65;
             System.out.print((char) ii + " ");
             for(int j = 1; j <= i; j++) {
                 ii += (n - j);
                 if(ii > 90)
-                    ii = (i - 65) % 26 + 65;
+                    ii = (ii - 65) % 26 + 65;
 
                 System.out.print((char)ii + " " );
             }
