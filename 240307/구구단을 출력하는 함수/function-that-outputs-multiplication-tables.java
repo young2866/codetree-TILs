@@ -15,7 +15,7 @@ public class Main {
          Math.min(Integer.parseInt(split[1]), Integer.parseInt(split[2])));
 
          int MID = 0;
-         for(int i = 0; i < 2; i++) {
+         for(int i = 0; i < 3; i++) {
             if(Integer.parseInt(split[i]) != MAX && Integer.parseInt(split[i]) != MIN)
                 MID = Integer.parseInt(split[i]);
          }
