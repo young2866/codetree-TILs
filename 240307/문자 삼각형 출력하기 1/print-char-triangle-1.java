@@ -16,13 +16,15 @@ public class Main {
             for(int j = 0; j < temp; j++) {
                 System.out.print(" ");
             }
-            int ii = i % 26 + 65;
+            int ii = i + 65;
+            if(ii > 90)
+                ii = (i - 65) % 26 + 65;
             System.out.print((char) ii + " ");
             for(int j = 1; j <= i; j++) {
                 ii += (n - j);
                 if(ii > 90)
                     ii = (i - 65) % 26 + 65;
-                
+
                 System.out.print((char)ii + " " );
             }
             System.out.println();
