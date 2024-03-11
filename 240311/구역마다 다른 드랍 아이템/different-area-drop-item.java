@@ -27,6 +27,7 @@ public class Main {
             Pair temp = pq.poll();
             int first = temp.first;
             int second = temp.second;
+            // System.out.println(first + " " + second);
 
             if(map[first] == map[second])
                 map[second]++;
