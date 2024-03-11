@@ -27,6 +27,9 @@ public class Main {
             if(num - ll.get(i) <= 0) {
                 ans++;
                 break;
+            } else {
+                num -= ll.get(i);
+                ans++;
             }
         }
 
