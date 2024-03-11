@@ -8,7 +8,7 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        double[] arr = new double[n + 3];
+        long[] arr = new long[n + 3];
 
         arr[1] = 1;
         arr[2] = 1;
@@ -17,7 +17,7 @@ public class Main {
             arr[i] = arr[i-1] + arr[i-2];
         }
 
-        System.out.println(String.format("%.0f", arr[n]));
+        System.out.println(arr[n]);
         // 여기에 코드를 작성해주세요.
     }
 }
