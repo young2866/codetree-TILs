@@ -27,7 +27,7 @@ public class Main {
 
         for(int i = 1; i <= 511; i++) {
             for(int j = 1; j <= 511; j++) {
-                if(map[i][j] == 1) {
+                if(map[i][j] != 0) {
                     for(int k = 0; k < 4; k++) {
                         if(map[i + dx[k]][j + dy[k]] == 0) {
                             ans++;
