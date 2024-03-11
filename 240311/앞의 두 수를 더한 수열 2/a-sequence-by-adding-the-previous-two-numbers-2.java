@@ -8,7 +8,7 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[n + 3];
+        double[] arr = new double[n + 3];
 
         arr[1] = 1;
         arr[2] = 1;
