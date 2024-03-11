@@ -24,7 +24,7 @@ public class Main {
         int ans = 0;
 
         for(int i = 0; i < ll.size(); i++) {
-            if(num - ll.get(i) < 0) {
+            if(num - ll.get(i) <= 0) {
                 ans++;
                 break;
             }
