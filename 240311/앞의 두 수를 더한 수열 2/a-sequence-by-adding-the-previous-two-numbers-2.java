@@ -17,7 +17,7 @@ public class Main {
             arr[i] = arr[i-1] + arr[i-2];
         }
 
-        System.out.println(arr[n]);
+        System.out.println("%.0f", arr[n]);
         // 여기에 코드를 작성해주세요.
     }
 }
