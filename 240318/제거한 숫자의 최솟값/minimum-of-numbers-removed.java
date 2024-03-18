@@ -18,6 +18,7 @@ public class Main {
             for(int i = 0; i <= split.length / 2; i++) {
                 max = Math.max(longArray[i] + longArray[split.length - i - 1], max);
             }
+            System.out.println(max);
         }else {
             Long max = 0L;
             for(int i = 0; i <= split.length / 2 - 1; i++) {
