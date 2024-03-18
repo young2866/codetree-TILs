@@ -8,16 +8,8 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         String target = br.readLine();
 
-        int a_count = 0;
-        int b_count = 0;
-        for(int i = 0; i < target.length(); i++) {
-            if(target.charAt(i) == 'a')
-                a_count++;
-            else
-                b_count++;
-        }
         int result = 1;
-        char count = a_count >= b_count ? 'b' : 'a';
+        char count = target.charAt(0);
         boolean chk = false;
 
         for(int i = 0; i < target.length(); i+=2) {
@@ -30,6 +22,5 @@ public class Main {
             }
         }
         System.out.println(result);
-        // 여기에 코드를 작성해주세요.
     }
 }
