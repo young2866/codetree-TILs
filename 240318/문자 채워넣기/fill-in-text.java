@@ -12,11 +12,11 @@ public class Main {
         char count = target.charAt(0);
         boolean chk = false;
 
-        for(int i = 0; i < target.length(); i+=2) {
-            if(chk && target.charAt(i) != count) {
+        for(int i = 2; i < target.length(); i+=2) {
+            if(chk && target.charAt(i) == count) {
                 chk = false;
             }
-            if(!chk && target.charAt(i) == count) {
+            if(!chk && target.charAt(i) != count) {
                 result++;
                 chk = true;
             }
