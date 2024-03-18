@@ -17,6 +17,7 @@ public class Main {
 
             if(hm.getOrDefault(a,2) != 2) {
                 count += hm.get(a) == b ? 0 : 1;
+                hm.put(a,b);
             }
             if(hm.getOrDefault(a, 2) == 2) {
                 hm.put(a , b);
