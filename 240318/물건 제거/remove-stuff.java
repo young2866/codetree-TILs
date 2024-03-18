@@ -19,17 +19,17 @@ public class Main {
             items[i] = Integer.parseInt(st.nextToken());
         }
 
-        Arrays.sort(mac);
-        Arrays.sort(items);
+        Arrays.sort(mac, Collections.reverseOrder());
+        Arrays.sort(items, Collections.reverseOrder());
 
         int time = 0;
-        int index = K - 1;
+        int index = 0;
 
-        while(index >= 0) {
+        while(index < items.length) {
             int remove = 0;
             for(int m : mac) {
-                if(index >= 0 && items[index] <= m) {
-                    index--;
+                if(index < items.length && items[index] <= m) {
+                    index++;
                     remove++;
                 }
             }
@@ -37,7 +37,7 @@ public class Main {
             time++;
         }
 
-        System.out.println(index == -1 ? time : -1);
+        System.out.println(index == items.length ? time : -1);
 
     }
 }
