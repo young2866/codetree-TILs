@@ -29,15 +29,10 @@ public class Main {
             count = Math.max(sum, count);
             return;
         }
+        func(now+1, sum);
         int[] a = ll.get(now);
-        if(a[0] == 1) {
-            func(now + 1, sum + a[1]);
-        }
-        if(a[0] != 1 && now + a[0] <= ll.size()) {
+        if(now + a[0] <= ll.size()) {
             func(now + a[0], sum + a[1]);
-        }
-        else {
-            func(now + 1, sum);
         }
     }
 }
