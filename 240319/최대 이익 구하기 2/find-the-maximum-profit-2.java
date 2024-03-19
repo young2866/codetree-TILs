@@ -25,7 +25,7 @@ public class Main {
         // 여기에 코드를 작성해주세요.
     }
     static void func(int now, int sum) {
-        if(now == ll.size()) {
+        if(now >= ll.size()) {
             count = Math.max(sum, count);
             return;
         }
