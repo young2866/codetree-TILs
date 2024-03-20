@@ -35,7 +35,7 @@ public class Main {
             return;
         }
 
-        if(now - energy[index] > 0) {
+        if(now - energy[index] >= 0) {
             func(energy, happy, now - energy[index], sum + happy[index], index+1);
         }
         func(energy, happy, now, sum, index+1);
