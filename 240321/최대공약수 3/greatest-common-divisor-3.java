@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.math.*;
 
 public class Main {
     public static void main(String[] args) throws IOException{
@@ -19,17 +20,17 @@ public class Main {
             arr2[i] = Integer.parseInt(st.nextToken());
         }
 
-        long ans = 1L;
-        for(int i = 0; i < n; i++) {
-            int temp = arr[i];
-            for(int j = 0; j < m; j++) {
-                int gcd = gcd(temp, arr2[j]);
-                ans = (ans * gcd) % 1000000007;
-                temp /= gcd;
-            }
+        BigInteger a = BigInteger.valueOf(arr[0]);
+        BigInteger b = BigInteger.valueOf(arr2[0]);
+        for (int i = 1; i < n; i++) {
+            a = a.multiply(BigInteger.valueOf(arr[i]));
+        }
+        for (int i = 1; i < m; i++) {
+            b = b.multiply(BigInteger.valueOf(arr2[i]));
         }
 
-        System.out.println(ans);
+        BigInteger gcd = a.gcd(b);
+        System.out.println(gcd.mod(BigInteger.valueOf(1000000007)));
 
 
         // 여기에 코드를 작성해주세요.
