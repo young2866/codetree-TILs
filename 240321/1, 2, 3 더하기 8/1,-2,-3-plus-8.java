@@ -21,9 +21,11 @@ public class Main {
             }
         }
         
-
-        System.out.println(dp[n][m]);
-
+        int ans = 0;
+        for(int i = 1; i <= m; i++) {
+            ans = (ans + dp[n][i]) % 1000000007; 
+        }
+        System.out.println(ans);
         // 여기에 코드를 작성해주세요.
     }
 }
