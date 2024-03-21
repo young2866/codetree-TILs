@@ -36,11 +36,11 @@ public class Main {
     }
 
     static int gcd(int a, int b) {
-        while(a != 0) {
-            int temp = a;
-            a = b % a;
-            b = temp;
-        }
-        return b;
+    while(b != 0) { // 수정: b가 0이 될 때까지 반복
+        int temp = a;
+        a = b;
+        b = temp % b; // 수정: a와 b의 나머지 연산
+    }
+        return a; // 수정: 최대공약수 반환
     }
 }
