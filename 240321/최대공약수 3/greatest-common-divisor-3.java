@@ -1,0 +1,45 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException{
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(br.readLine());
+        int[] arr = new int[n];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for(int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
+        int m = Integer.parseInt(br.readLine());
+        int[] arr2 = new int[m];
+        st = new StringTokenizer(br.readLine());
+        for(int i = 0; i < n; i++) {
+            arr2[i] = Integer.parseInt(st.nextToken());
+        }
+
+        Long ans = 1L;
+        for(int i = 0; i < n; i++) {
+            int max = Integer.MIN_VALUE;
+            for(int j = 0; j < m; j++) {
+                max = Math.max(max, gcd(arr[i],arr2[j]));
+            }
+            ans = (ans * max) % 1000000007;
+        }
+
+        System.out.println(ans);
+
+
+        // 여기에 코드를 작성해주세요.
+    }
+
+    static int gcd(int a, int b) {
+        while(a != 0) {
+            int temp = a;
+            a = b % a;
+            b = temp;
+        }
+        return b;
+    }
+}
