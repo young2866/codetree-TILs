@@ -19,7 +19,7 @@ public class Main {
             arr2[i] = Integer.parseInt(st.nextToken());
         }
 
-        Long ans = 1L;
+        long ans = 1L;
         for(int i = 0; i < n; i++) {
             int temp = arr[i];
             for(int j = 0; j < m; j++) {
