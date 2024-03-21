@@ -21,11 +21,12 @@ public class Main {
 
         Long ans = 1L;
         for(int i = 0; i < n; i++) {
-            int max = Integer.MIN_VALUE;
+            int temp = arr[i];
             for(int j = 0; j < m; j++) {
-                max = Math.max(max, gcd(arr[i],arr2[j]));
+                int gcd = gcd(temp, arr2[j]);
+                ans = (ans * gcd) % 1000000007;
+                temp /= gcd;
             }
-            ans = (ans * max) % 1000000007;
         }
 
         System.out.println(ans);
