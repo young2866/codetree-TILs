@@ -10,15 +10,19 @@ public class Main {
 
         int x = Integer.parseInt(st.nextToken());
         int y = Integer.parseInt(st.nextToken());
-
-        int dx = y%x == 0 ? y/x : y/x + 1;
-
-        System.out.println(dx * x);
-
+       
+        System.out.println((x + y) -  gcd(x, y));
+        
 
         
         // 여기에 코드를 작성해주세요.
     }
-
-    
+    static int gcd(int x, int y) {
+        while(x != 0) {
+            int temp = x;
+            x = y % x;
+            y = temp;
+        }
+        return y;
+    }
 }
