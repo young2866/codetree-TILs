@@ -34,7 +34,7 @@ public class Main {
             @Override
             public int compare(Pair a, Pair b) {
                 if(a.x == b.x) {
-                    return b.y - a.y;
+                    return a.y-b.y;
                 }
                 return a.x - b.x;
             }
