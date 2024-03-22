@@ -44,8 +44,11 @@ public class Main {
         int max = 0;
         for(int i = 0; i < n; i++) {
             for(int j = d; j>=pairs[i].x; j--) {
-                if(dp[j - pairs[i].x] != -1 || j == pairs[i].x) {
-                    dp[j] = Math.max(dp[j], Math.max(dp[j-pairs[i].x],pairs[i].y));
+                if(dp[j - pairs[i].x] != -1) {
+                    dp[j] = Math.max(dp[j], Math.max(dp[j - pairs[i].x], pairs[i].y));
+                }
+                if(j == pairs[i].x ) {
+                    dp[j] = Math.max(dp[j], pairs[i].y);
                 }
             }
             max = Math.max(dp[d], max);
