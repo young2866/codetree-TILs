@@ -33,29 +33,25 @@ public class Main {
         Arrays.sort(pairs, new Comparator<Pair>() {
             @Override
             public int compare(Pair a, Pair b) {
-                if(a.x == b.x) {
-                    return a.y-b.y;
-                }
                 return a.x - b.x;
             }
         });
 
         Arrays.fill(dp, -1);
-        int max = 0;
+        dp[0] = 0;
         for(int i = 0; i < n; i++) {
-            for(int j = d; j>=pairs[i].x; j--) {
+            for(int j = d; j>= pairs[i].x; j--) {
                 if(dp[j - pairs[i].x] != -1) {
-                    dp[j] = Math.max(dp[j], Math.max(dp[j - pairs[i].x], pairs[i].y));
-                }
-                if(j == pairs[i].x ) {
-                    dp[j] = Math.max(dp[j], pairs[i].y);
+                    if(dp[j] == -1) dp[j] = pairs[i].y;
+                    else {
+                        dp[j] = Math.max(dp[j], pairs[i].y);
+                    }
                 }
             }
-            max = Math.max(dp[d], max);
         }
 
 
-        System.out.println(max);        
+        System.out.println(dp[d]);        
         // 여기에 코드를 작성해주세요.
     }
 
