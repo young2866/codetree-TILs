@@ -30,7 +30,15 @@ public class Main {
             int b = Integer.parseInt(st.nextToken());
             pairs[i]=new Pair(a, b);
         }
-        Arrays.sort(pairs, (a, b) -> a.x - a.y);
+        Arrays.sort(pairs, new Comparator<Pair>() {
+            @Override
+            public int compare(Pair a, Pair b) {
+                if(a.x == b.x) {
+                    return b.y - a.y;
+                }
+                return a.x - b.x;
+            }
+        });
 
         Arrays.fill(dp, -1);
         int max = 0;
