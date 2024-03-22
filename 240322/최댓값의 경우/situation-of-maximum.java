@@ -2,8 +2,16 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    static List<int[]> ll;
-    static int min = 0;
+
+    static public class Pair {
+        int x;
+        int y;
+
+        public Pair(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
     
     public static void main(String[] args) throws IOException{
 
@@ -13,34 +21,32 @@ public class Main {
         int d = Integer.parseInt(st.nextToken());
         int n = Integer.parseInt(st.nextToken());
 
-        ll = new ArrayList<>();
-        boolean[] chk = new boolean[n];
+        int[] dp = new int[d + 1];
+        Pair[] pairs = new Pair[n];
+
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            ll.add(new int[]{a,b});
+            pairs[i]=new Pair(a, b);
         }
-        func(chk, d, 100001,0);
-        System.out.println(min);
+        Arrays.sort(pairs, (a, b) -> a.x - a.y);
+
+        Arrays.fill(dp, -1);
+        int max = 0;
+        for(int i = 0; i < n; i++) {
+            for(int j = d; j>=pairs[i].x; j--) {
+                if(dp[j - pairs[i].x] != -1 || j == pairs[i].x) {
+                    dp[j] = Math.max(dp[j], pairs[i].y);
+                }
+            }
+            max = Math.max(dp[d], max);
+        }
+
+
+        System.out.println(max);        
         // 여기에 코드를 작성해주세요.
     }
 
-    static void func(boolean[] chk, int target, int now, int index) {
-        if(target == 0) {
-            min = Math.max(now, min);
-        }
-
-        for(int i = index; i < chk.length; i++) {
-            if(chk[i] == false) {
-                int[] temp = ll.get(i);
-                if(target - temp[0] >= 0) {
-                    chk[i] = true;
-                    int min_temp = Math.min(now, temp[1]);
-                    func(chk, target-temp[0], min_temp, i+1);
-                    chk[i] = false;
-                }
-            }
-        }
-    }
+    
 }
