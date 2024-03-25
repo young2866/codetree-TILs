@@ -29,8 +29,14 @@ public class Main {
 
     static void func (int now, int[] visited, int[] curr, int prex, int prey) {
         if(now == N && (curr[0] == 0 || curr[1] == 0)) {
-            count++;
-            return;
+            if(curr[0] - 0 != 0 && (0 - curr[0]) / Math.abs(0-curr[0]) != prex) {
+                count++;
+                return;
+            }
+            if(curr[1] - 0 != 0 && (0 - curr[1]) / Math.abs(0-curr[1]) != prey) {
+                count++;
+                return;
+            }
         }
         for(int i = 0; i < N; i++) {
             if(visited[i] == 0) {
