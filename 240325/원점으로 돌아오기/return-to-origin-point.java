@@ -38,7 +38,7 @@ public class Main {
                 
                 if(temp[0] == curr[0] || temp[1] == curr[1]) {
                     if(temp[0] - curr[0] != 0) {
-                        int dx = temp[0] - curr[0] / Math.abs(temp[0] - curr[0]);
+                        int dx = (temp[0] - curr[0]) / Math.abs(temp[0] - curr[0]);
                         if(dx == prex) {
                             continue;
                         }
@@ -47,7 +47,7 @@ public class Main {
                         visited[i] = 0;
                     }
                     if(temp[1] - curr[1] != 0) {
-                        int dy = temp[1] - curr[1] / Math.abs(temp[1] - curr[1]);
+                        int dy = (temp[1] - curr[1]) / Math.abs(temp[1] - curr[1]);
                         if(dy == prey) {
                             continue;
                         }
