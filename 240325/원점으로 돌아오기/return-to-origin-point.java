@@ -22,22 +22,40 @@ public class Main {
         }
         int[] visited = new int[N];
 
-        func(0, visited, new int[]{0, 0});
+        func(0, visited, new int[]{0, 0}, 0,0);
         System.out.println(count);
         // 여기에 코드를 작성해주세요.
     }
 
-    static void func (int now, int[] visited, int[] curr) {
+    static void func (int now, int[] visited, int[] curr, int prex, int prey) {
         if(now == N && (curr[0] == 0 || curr[1] == 0)) {
             count++;
             return;
         }
         for(int i = 0; i < N; i++) {
-            int[] temp = ll.get(i);
-            if((temp[0] == curr[0] || temp[1] == curr[1]) && visited[i] == 0) {
-                visited[i] = 1;
-                func(now + 1, visited, temp);
-                visited[i] = 0;
+            if(visited[i] == 0) {
+                int[] temp = ll.get(i);
+                
+                if(temp[0] == curr[0] || temp[1] == curr[1]) {
+                    if(temp[0] - curr[0] != 0) {
+                        int dx = temp[0] - curr[0] / Math.abs(temp[0] - curr[0]);
+                        if(dx == prex) {
+                            continue;
+                        }
+                        visited[i] = 1;
+                        func(now + 1, visited, temp, dx, 0);
+                        visited[i] = 0;
+                    }
+                    if(temp[1] - curr[1] != 0) {
+                        int dy = temp[1] - curr[1] / Math.abs(temp[1] - curr[1]);
+                        if(dy == prey) {
+                            continue;
+                        }
+                        visited[i] = 1;
+                        func(now + 1, visited, temp, 0, dy);
+                        visited[i] = 0;
+                    }
+                }
             }
         }
     }
