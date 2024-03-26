@@ -22,22 +22,20 @@ public class Main {
             ll.add(new int[]{a,b});
         }
 
-        func(0, 0, t);
-
-        System.out.println(max);
+        int[][] dp = new int[n+1][t+1];
+        for(int i = 1; i <= n; i++) {
+            int[] temp = ll.get(i-1);
+            for(int j = 1; j <= t; j++) {
+                if(j - temp[0] >= 0) {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i-1][j-temp[0]] + temp[1]);
+                }
+                else {
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        System.out.println(dp[n][t]);
 
         // 여기에 코드를 작성해주세요.
-    }
-    static void func(int start, int sum, int now) {
-        if(start == n || now == 0) {
-            max = Math.max(sum, max);
-            return;
-        }
-
-        int[] temp = ll.get(start);
-        if(now - temp[0] >= 0) {
-            func(start + 1, sum + temp[1], now-temp[0]);
-        }
-        func(start + 1, sum, now);
     }
 }
