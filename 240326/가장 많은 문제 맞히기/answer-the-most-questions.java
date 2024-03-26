@@ -22,8 +22,6 @@ public class Main {
             ll.add(new int[]{a,b});
         }
 
-        Collections.sort(ll, (int[] a, int[] b) -> {return a[0] - b[0];});
-
         func(0, 0, t);
 
         System.out.println(max);
@@ -31,7 +29,7 @@ public class Main {
         // 여기에 코드를 작성해주세요.
     }
     static void func(int start, int sum, int now) {
-        if(start == n) {
+        if(start == n || now == 0) {
             max = Math.max(sum, max);
             return;
         }
