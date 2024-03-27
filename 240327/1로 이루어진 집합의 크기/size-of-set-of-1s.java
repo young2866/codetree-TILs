@@ -28,13 +28,30 @@ public class Main {
 
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
-                if(map[i][j] == 0) {
-                    map[i][j] = 1;
+                if(map[i][j] == 1)
                     func(i, j);
-                    map[i][j] = 0;
+            }
+        }
+        
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < m; j++) {
+                if(map[i][j] == 0) {
+                    int count = 0;
+                    for(int k = 0; k < 4; k++) {
+                        int nx = i + dx[k];
+                        int ny = j + dy[k];
+                        if(nx < 0 || nx >= n || ny <0 || ny >= m)
+                            continue;
+                        else {
+                            count+=map[nx][ny];
+                        }
+                    }
+                    max = Math.max(count, max);
                 }
             }
         }
+        
 
         System.out.println(max);
         // 여기에 코드를 작성해주세요.
@@ -54,14 +71,13 @@ public class Main {
                 int ny = temp[1] + dy[i];
                 if(nx < 0 || nx >= n || ny < 0 || ny >= m )
                     continue;
-                if (map[nx][ny] == 1 && visited[nx][ny] == 0) {
+                if (map[nx][ny] != 0 && visited[nx][ny] == 0) {
                     q.add(new int[]{nx, ny});
-                    count++;
+                    map[nx][ny] = ++count;
                     visited[nx][ny] = 1;
                 }
             }
 
         }
-        max = Math.max(max, count);
     }
 }
