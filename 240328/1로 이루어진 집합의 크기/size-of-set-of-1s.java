@@ -48,18 +48,20 @@ public class Main {
             for(int j = 0; j < m; j++) {
                 if(map[i][j] == 0) {
                     int count = 0;
+                    List<Integer> temp = new ArrayList<>();
                     for(int k = 0; k < 4; k++) {
                         int nx = i + dx[k];
                         int ny = j + dy[k];
-                        List<Integer> temp = new ArrayList<>();
                         if(nx < 0 || nx >= n || ny <0 || ny >= m || map[nx][ny] == 0)
                             continue;
                         else {
                             if(!temp.contains(map[nx][ny])) {
-                                count += hm.getOrDefault(map[nx][ny], 0);
                                 temp.add(map[nx][ny]);
                             }
                         }
+                    }
+                    for(int k : temp) {
+                        count+=hm.get(k);
                     }
                     max = Math.max(count + 1, max);
                 }
@@ -72,9 +74,10 @@ public class Main {
     }
 
     static void func(int x, int y) {
-        int count = 1;
+        int count = 0;
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{x, y});
+        map[x][y] = index;
         visited[x][y] = 1;
 
         while(!q.isEmpty()) {
@@ -85,7 +88,7 @@ public class Main {
                 int ny = temp[1] + dy[i];
                 if(nx < 0 || nx >= n || ny < 0 || ny >= m )
                     continue;
-                if (map[nx][ny] != 0 && visited[nx][ny] == 0) {
+                if (map[nx][ny] == 1 && visited[nx][ny] == 0) {
                     q.add(new int[]{nx, ny});
                     map[nx][ny] = index;
                     visited[nx][ny] = 1;
